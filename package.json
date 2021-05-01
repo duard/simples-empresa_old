@@ -36,9 +36,12 @@
     "tslib": "^2.0.0"
   },
   "devDependencies": {
+    "@angular-devkit/architect": "^0.1102.11",
     "@commitlint/cli": "^12.1.1",
     "@commitlint/config-conventional": "^12.1.1",
+    "@nrwl/angular": "^12.0.8",
     "@nrwl/cli": "12.0.8",
+    "@nrwl/nest": "^12.0.8",
     "@nrwl/nx-cloud": "latest",
     "@nrwl/tao": "12.0.8",
     "@nrwl/workspace": "12.0.8",
