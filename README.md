@@ -1,5 +1,6 @@
-```
-# just my README
+# SimplesEmpresa
+
+This project was generated using [Nx](https://nx.dev).
 
 ## configurations
 
