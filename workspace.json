@@ -1,8 +1,67 @@
 {
   "version": 2,
-
-  "projects": {},
   "cli": {
-    "defaultCollection": "@nrwl/workspace"
+    "defaultCollection": "@nrwl/nest"
+  },
+  "defaultProject": "roma-api",
+  "projects": {
+    "roma-api": {
+      "root": "apps/roma-api",
+      "sourceRoot": "apps/roma-api/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:build",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/apps/roma-api",
+            "main": "apps/roma-api/src/main.ts",
+            "tsConfig": "apps/roma-api/tsconfig.app.json",
+            "assets": [
+              "apps/roma-api/src/assets"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/roma-api/src/environments/environment.ts",
+                  "with": "apps/roma-api/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "roma-api:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/roma-api/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/roma-api"
+          ],
+          "options": {
+            "jestConfig": "apps/roma-api/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    }
   }
 }

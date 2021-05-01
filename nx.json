@@ -1,15 +1,7 @@
 {
+  "implicitDependencies": { "package.json": { "dependencies": "*", "devDependencies": "*" }, ".eslintrc.json": "*" },
+  "affected": { "defaultBase": "master" },
   "npmScope": "simples-empresa",
-  "affected": {
-    "defaultBase": "master"
-  },
-  "implicitDependencies": {
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
-    },
-    ".eslintrc.json": "*"
-  },
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/nx-cloud",
@@ -21,5 +13,5 @@
       }
     }
   },
-  "projects": {}
+  "projects": { "roma-api": { "tags": [] } }
 }

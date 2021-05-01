@@ -14,7 +14,7 @@ This project was generated using [Nx](https://nx.dev).
 
 [Markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
-[I'm an inline-style link](https://www.google.com)
+[Structure project](https://gist.github.com/trungk18/7ef8766cafc05bc8fd87be22de6c5b12)
 
 [I'm an inline-style link with title](https://www.google.com "Google's Homepage")
 
