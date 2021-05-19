@@ -1,4 +1,5 @@
 {
+  "explorer.compactFolders": false,
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
   "editor.renderWhitespace": "all",
@@ -12,7 +13,8 @@
   "editor.fontWeight": "300",
   "bracketPairColorizer.forceIterationColorCycle": true,
   "editor.rulers": [
-    0, 200
+    0,
+    200
     // REMESSA BRADESCO
     // 1, 6, 7, 12, 19, 20, 37, 62, 65, 66, 70, 81, 82, 92, 93, 94, 104, 105, 106, 108, 110, 120, 126, 139, 142, 147, 149, 150, 156, 158, 160, 173, 179, 192, 205, 218, 220, 234, 274, 314, 326, 331, 334, 394, 400
     // RETORNO BRADESCO
@@ -48,7 +50,6 @@
   "explorer.confirmDelete": false,
   "terminal.integrated.shell.windows": "zsh",
   "editor.snippetSuggestions": "top",
-
   "workbench.iconTheme": "material-icon-theme",
   "files.autoSave": "off",
   "javascript.updateImportsOnFileMove.enabled": "always",
@@ -56,8 +57,6 @@
   "files.useExperimentalFileWatcher": true,
   "window.openFilesInNewWindow": "on",
   "terminal.integrated.rendererType": "dom",
-
-
   "editor.lineHeight": 20,
   "javascript.validate.enable": false,
   "workbench.editor.enablePreview": false,
@@ -66,10 +65,7 @@
   "editor.glyphMargin": true,
   "terminal.integrated.fontWeight": "200",
   "terminal.integrated.macOptionIsMeta": true,
-
   "terminal.integrated.fontWeightBold": "700",
   "terminal.integrated.lineHeight": 1.6,
-
   "editor.suggestSelection": "first",
-
 }

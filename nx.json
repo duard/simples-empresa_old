@@ -24,6 +24,22 @@
   "projects": {
     "roma-api": {
       "tags": []
+    },
+    "shared-assets": {
+      "tags": ["scope:shared", "type:assets"]
+    },
+    "roma-app": {
+      "tags": []
+    },
+    "roma-app-e2e": {
+      "tags": [],
+      "implicitDependencies": ["roma-app"]
+    },
+    "shared-styles": {
+      "tags": ["scope:shared", "type:styles"]
+    },
+    "shared-environments": {
+      "tags": ["scope:shared", "type:environments"]
     }
   }
 }
