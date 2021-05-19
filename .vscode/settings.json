@@ -31,7 +31,7 @@
   // "editor.wordWrap": "wordWrapColumn",
   "terminal.integrated.fontSize": 10,
   "files.insertFinalNewline": true,
-  "window.zoomLevel": 0,
+  "window.zoomLevel": 1,
   "editor.renderLineHighlight": "all",
   "editor.renderIndentGuides": true,
   "workbench.editor.showIcons": true,
@@ -49,7 +49,7 @@
   "terminal.integrated.shell.windows": "zsh",
   "editor.snippetSuggestions": "top",
 
-  "workbench.iconTheme": "moxer-icons",
+  "workbench.iconTheme": "material-icon-theme",
   "files.autoSave": "off",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "typescript.updateImportsOnFileMove.enabled": "always",
