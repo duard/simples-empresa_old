@@ -33,7 +33,7 @@
   // "editor.wordWrap": "wordWrapColumn",
   "terminal.integrated.fontSize": 10,
   "files.insertFinalNewline": true,
-  "window.zoomLevel": 1,
+  "window.zoomLevel": 0,
   "editor.renderLineHighlight": "all",
   "editor.renderIndentGuides": true,
   "workbench.editor.showIcons": true,
