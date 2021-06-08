@@ -1,4 +1,8 @@
 {
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true
+  },
   "compileOnSave": false,
   "compilerOptions": {
     "rootDir": ".",
@@ -10,11 +14,41 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2017", "dom"],
-    "skipLibCheck": true,
-    "skipDefaultLibCheck": true,
+    "lib": [
+      "es2017",
+      "dom"
+    ],
+    "skipLibCheck": false,
+    "skipDefaultLibCheck": false,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@envs": [
+        "libs/shared/environments/src/index.ts"
+      ],
+      "@simples-empresa/shared/assets": [
+        "libs/shared/assets/src/index.ts"
+      ],
+      "@simples-empresa/shared/styles": [
+        "libs/shared/styles/src/index.ts"
+      ],
+      "@simples-empresa/shared/environments": [
+        "libs/shared/environments/src/index.ts"
+      ]
+    }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [
+    "node_modules",
+    "tmp",
+    "**/*.spec.ts"
+  ],
+  "include": [
+    "**/*.ts",
+    "./libs/*/src/**/*",
+    "./apps/*/src/**/*"
+  ],
+  "types": [
+    "node",
+    "cypress",
+    "jest"
+  ]
 }

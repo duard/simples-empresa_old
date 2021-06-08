@@ -12,16 +12,12 @@
       "targets": {
         "build": {
           "executor": "@nrwl/node:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/roma-api",
             "main": "apps/roma-api/src/main.ts",
             "tsConfig": "apps/roma-api/tsconfig.app.json",
-            "assets": [
-              "apps/roma-api/src/assets"
-            ]
+            "assets": ["apps/roma-api/src/assets"]
           },
           "configurations": {
             "production": {
@@ -46,22 +42,192 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/roma-api/**/*.ts"
-            ]
+            "lintFilePatterns": ["apps/roma-api/**/*.ts"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/roma-api"
-          ],
+          "outputs": ["coverage/apps/roma-api"],
           "options": {
             "jestConfig": "apps/roma-api/jest.config.js",
             "passWithNoTests": true
           }
         }
       }
+    },
+    "roma-app": {
+      "projectType": "application",
+      "root": "apps/roma-app",
+      "sourceRoot": "apps/roma-app/src",
+      "prefix": "simples-empresa",
+      "implicitDependencies": ["shared-assets", "shared-styles"],
+      "targets": {
+        "build": {
+          "executor": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/roma-app",
+            "index": "apps/roma-app/src/index.html",
+            "main": "apps/roma-app/src/main.ts",
+            "polyfills": "apps/roma-app/src/polyfills.ts",
+            "tsConfig": "apps/roma-app/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "favicon.ico",
+                "input": "libs/shared/assets/src",
+                "output": "./"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/shared/assets/src/assets",
+                "output": "assets"
+              }
+            ],
+            "styles": ["apps/roma-app/src/styles.scss", "libs/shared/styles/src/index.scss"],
+            "stylePreprocessorOptions": {
+              "includePaths": ["libs/shared/styles/src/", "libs/shared/styles/src/lib/", "libs/shared/styles/src/lib/"]
+            },
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "libs/shared/environments/src/lib/environment.ts",
+                  "with": "libs/shared/environments/src/lib/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "executor": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "roma-app:build:production"
+            },
+            "development": {
+              "browserTarget": "roma-app:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "executor": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "roma-app:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/roma-app/src/**/*.ts", "apps/roma-app/src/**/*.html"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/roma-app"],
+          "options": {
+            "jestConfig": "apps/roma-app/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "roma-app-e2e": {
+      "root": "apps/roma-app-e2e",
+      "sourceRoot": "apps/roma-app-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/roma-app-e2e/cypress.json",
+            "tsConfig": "apps/roma-app-e2e/tsconfig.e2e.json",
+            "devServerTarget": "roma-app:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "roma-app:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/roma-app-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "shared-assets": {
+      "projectType": "library",
+      "root": "libs/shared/assets",
+      "sourceRoot": "libs/shared/assets/src"
+    },
+    "shared-styles": {
+      "projectType": "library",
+      "root": "libs/shared/styles",
+      "sourceRoot": "libs/shared/styles/src"
+    },
+    "shared-environments": {
+      "root": "libs/shared/environments",
+      "sourceRoot": "libs/shared/environments/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/environments/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/environments"],
+          "options": {
+            "jestConfig": "libs/shared/environments/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    }
+  },
+  "generators": {
+    "@nrwl/angular:application": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "scss"
     }
   }
 }

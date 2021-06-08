@@ -1,5 +1,11 @@
 # SimplesEmpresa
 
+## rodar o projeto
+
+```
+npx nx run-many --target=serve --projects=roma-app,roma-api --parallel=true
+```
+
 This project was generated using [Nx](https://nx.dev).
 
 ## configurations
