@@ -70,7 +70,6 @@
             "main": "apps/roma-app/src/main.ts",
             "polyfills": "apps/roma-app/src/polyfills.ts",
             "tsConfig": "apps/roma-app/tsconfig.app.json",
-            "inlineStyleLanguage": "scss",
             "assets": [
               {
                 "glob": "favicon.ico",
