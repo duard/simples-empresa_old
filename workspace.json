@@ -84,6 +84,9 @@
               }
             ],
             "styles": ["apps/roma-app/src/styles.scss", "libs/shared/styles/src/index.scss"],
+            "stylePreprocessorOptions": {
+              "includePaths": ["libs/shared/styles/src/", "libs/shared/styles/src/lib/", "libs/shared/styles/src/lib/"]
+            },
             "scripts": []
           },
           "configurations": {
