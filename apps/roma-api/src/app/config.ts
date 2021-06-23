@@ -1,6 +1,6 @@
-import { join } from 'path';
+import { join } from 'path'
 
-import { environment } from './../environments/environment';
+import { environment } from './../environments/environment'
 
 export const config = () => ({
   port: Number(process.env.API_PORT),
@@ -23,10 +23,10 @@ export const config = () => ({
       join(__dirname, './**/*.entity{.ts,.js}'),
       '../../../../../libs/lib-api-cruds/src/lib/*.entity{.ts,.js}',
       'src/**/**.entity{.ts,.js}',
-      '../../../../libs/api-pessoas/src/lib/*.entity{.ts,.js}'
+      '../../../../libs/api-pessoas/src/lib/*.entity{.ts,.js}',
     ],
     // logging: 'all',
     autoLoadEntities: true,
-    logging: false
-  }
-});
+    logging: false,
+  },
+})
