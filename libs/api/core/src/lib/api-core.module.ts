@@ -35,8 +35,8 @@ const ENV = process.env.NODE_ENV
 })
 export class ApiCoreModule {
   constructor() {
-    console.log('AMBIENTE', ENV, !ENV ? '.env' : `.env.${ENV}`)
-    console.log('ENV_FILE', process.env.ENV_FILE)
+    // console.log('AMBIENTE', ENV, !ENV ? '.env' : `.env.${ENV}`)
+    // console.log('ENV_FILE', process.env.ENV_FILE)
     // console.log(process.env)
   }
 }
