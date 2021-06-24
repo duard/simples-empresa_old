@@ -11,44 +11,24 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": [
-      "es2017",
-      "dom"
-    ],
+    "lib": ["es2017", "dom"],
     "skipLibCheck": false,
     "skipDefaultLibCheck": false,
     "baseUrl": ".",
     "paths": {
-      "@envs": [
-        "libs/shared/environments/src/index.ts"
-      ],
-      "@simples-empresa/shared/assets": [
-        "libs/shared/assets/src/index.ts"
-      ],
-      "@simples-empresa/shared/styles": [
-        "libs/shared/styles/src/index.ts"
-      ],
-      "@simples-empresa/shared/environments": [
-        "libs/shared/environments/src/index.ts"
-      ]
+      "@envs": ["libs/shared/environments/src/index.ts"],
+      "@simples-empresa/shared/assets": ["libs/shared/assets/src/index.ts"],
+      "@simples-empresa/shared/styles": ["libs/shared/styles/src/index.ts"],
+      "@simples-empresa/shared/environments": ["libs/shared/environments/src/index.ts"],
+      "@simples-empresa/api/core": ["libs/api/core/src/index.ts"]
     }
   },
-  "exclude": [
-    "node_modules",
-    "tmp",
-    "**/*.spec.ts"
-  ],
-  "include": [
-    "**/*.ts",
-    "./libs/*/src/**/*",
-    "./apps/*/src/**/*"
-  ],
-  "types": [
-    "node",
-    "cypress",
-    "jest"
-  ]
+  "exclude": ["node_modules", "tmp", "**/*.spec.ts"],
+  "include": ["**/*.ts", "./libs/*/src/**/*", "./apps/*/src/**/*"],
+  "types": ["node", "cypress", "jest"]
 }

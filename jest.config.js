@@ -6,5 +6,6 @@ module.exports = {
     '<rootDir>/libs/shared/styles',
     '<rootDir>/libs/shared/environments',
     '<rootDir>/apps/tests-app',
+    '<rootDir>/libs/api/core',
   ],
 }

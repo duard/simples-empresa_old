@@ -1,12 +1,15 @@
 import { join } from 'path'
 
-import { environment } from './../environments/environment'
+export const configuration2 = () => ({
+  environment: process.env.NODE_ENV,
+  port: parseInt(process.env.PORT || '3000', 10),
+})
 
-export const config = () => ({
-  port: Number(process.env.API_PORT),
+export const configuration = () => ({
+  port: parseInt(process.env.API_PORT || '3000', 10),
   host: process.env.API_HOST,
   jwtSecret: process.env.JWT_SECRET,
-  devFile: environment.DEV_FILE,
+  envFile: process.env.ENV_FILE,
   database: {
     type: process.env.API_TYPEORM_TYPE || 'mysql',
     port: Number(process.env.API_TYPEORM_PORT),
