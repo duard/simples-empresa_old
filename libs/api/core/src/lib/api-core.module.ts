@@ -3,10 +3,13 @@ import { ConfigModule } from '@nestjs/config'
 import { GraphQLModule } from '@nestjs/graphql'
 import { TypeOrmModule } from '@nestjs/typeorm'
 
-import { CoreResolver } from './api-core.resolver'
 import { configuration } from './config/configuration'
 import { DatabaseConfig } from './config/db.config'
 import { validationSchema } from './config/validation'
+import { ApiCoreController } from './controllers/api-core.controller'
+import { ApiCoreResolver } from './resolvers/api-core.resolver'
+import { DateScalar } from './scalars/date.scalars'
+import { ApiCoreService } from './services/api-core.service'
 
 const ENV = process.env.NODE_ENV
 @Module({
@@ -26,8 +29,8 @@ const ENV = process.env.NODE_ENV
       useClass: DatabaseConfig,
     }),
   ],
-  controllers: [],
-  providers: [CoreResolver],
+  controllers: [ApiCoreController],
+  providers: [ApiCoreResolver, ApiCoreService, DateScalar],
   exports: [],
 })
 export class ApiCoreModule {
