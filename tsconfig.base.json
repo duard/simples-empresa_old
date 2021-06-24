@@ -25,7 +25,8 @@
       "@simples-empresa/shared/assets": ["libs/shared/assets/src/index.ts"],
       "@simples-empresa/shared/styles": ["libs/shared/styles/src/index.ts"],
       "@simples-empresa/shared/environments": ["libs/shared/environments/src/index.ts"],
-      "@simples-empresa/api/core": ["libs/api/core/src/index.ts"]
+      "@simples-empresa/api/core": ["libs/api/core/src/index.ts"],
+      "@simples-empresa/api/shared": ["libs/api/shared/src/index.ts"],
     }
   },
   "exclude": ["node_modules", "tmp", "**/*.spec.ts"],

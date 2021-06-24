@@ -44,6 +44,9 @@
     },
     "api-core": {
       "tags": ["scope:api", "type:core"]
+    },
+    "api-shared": {
+      "tags": ["scope:api", "type:shared"]
     }
   }
 }
