@@ -1,9 +1,8 @@
-import { Field, ID, ObjectType } from '@nestjs/graphql'
-
+import { Field, ObjectType } from 'type-graphql'
 import JSON from 'graphql-type-json'
 
 @ObjectType()
-export class AppStatus {
+export class ApiCoreStatus {
   @Field((type) => JSON)
   app: any
 
