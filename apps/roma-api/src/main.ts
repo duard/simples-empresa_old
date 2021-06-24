@@ -17,7 +17,7 @@ async function bootstrap() {
   const port = process.env.PORT || 3333
   await app.listen(port, () => {
     Logger.log('Listening at http://localhost:' + port + '/' + globalPrefix)
-    Logger.log(`Running in ${config.get('environment')} mode`)
+    Logger.log(`Running in ${config.get('NODE_ENV')} mode`)
   })
 }
 

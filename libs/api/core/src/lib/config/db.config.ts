@@ -8,8 +8,8 @@ export class DatabaseConfig implements TypeOrmOptionsFactory {
   createTypeOrmOptions() {
     const dbConfig = this.configService.get('database')
     // console.log('=>', this.configService)
-    console.log(`Running in ${this.configService.get('NODE_ENV')} mode`)
-    console.log('DB CONFIG', dbConfig)
+    // console.log(`Running in ${this.configService.get('NODE_ENV')} mode`)
+    // console.log('DB CONFIG', dbConfig)
 
     return dbConfig
   }

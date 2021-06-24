@@ -12,6 +12,6 @@ import { AppService } from './app.service'
 })
 export class AppModule {
   constructor() {
-    console.log('=> APP_MODULE : ', environment.API_TYPEORM_HOSTNAME)
+    // console.log('=> APP_MODULE : ', environment.API_TYPEORM_HOSTNAME)
   }
 }
