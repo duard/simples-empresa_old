@@ -6,15 +6,16 @@ export const config = () => ({
   port: Number(process.env.API_PORT),
   host: process.env.API_HOST,
   jwtSecret: process.env.JWT_SECRET,
+  devFile: environment.DEV_FILE,
   database: {
-    type: environment.API_TYPEORM_TYPE || 'mysql',
-    port: Number(environment.API_TYPEORM_PORT),
-    synchronize: environment.API_TYPEORM_SYNC,
+    type: process.env.API_TYPEORM_TYPE || 'mysql',
+    port: Number(process.env.API_TYPEORM_PORT),
+    synchronize: process.env.API_TYPEORM_SYNC,
 
-    database: environment.API_TYPEORM_DATABASE,
-    username: environment.API_TYPEORM_USERNAME,
-    password: environment.API_TYPEORM_PASSWORD,
-    host: environment.API_TYPEORM_HOSTNAME,
+    database: process.env.API_TYPEORM_DATABASE,
+    username: process.env.API_TYPEORM_USERNAME,
+    password: process.env.API_TYPEORM_PASSWORD,
+    host: process.env.API_TYPEORM_HOSTNAME,
 
     entities: [
       __dirname + '/../**/*.entity{.ts,.js}',

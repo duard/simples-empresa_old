@@ -12,7 +12,7 @@ const ENV = process.env.NODE_ENV
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: !ENV ? '.env.dev' : `.env.${ENV}`,
+      envFilePath: !ENV ? '.env' : `.env.${ENV}`,
       isGlobal: true,
       load: [config],
     }),
@@ -26,7 +26,7 @@ const ENV = process.env.NODE_ENV
 })
 export class AppModule {
   constructor() {
-    console.log('AMBIENTE', !ENV ? '.env.dev' : `.env.${ENV}`)
+    console.log('AMBIENTE', ENV, !ENV ? '.env' : `.env.${ENV}`)
     console.log('file =>', process.env.API_FILE)
   }
 }
