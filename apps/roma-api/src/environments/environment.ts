@@ -3,6 +3,8 @@ export const environment = {
   environment: 'development',
   TIMEZONE: 'America/Sao_Paulo',
 
+  DEV_FILE: process.env.API_FILE,
+
   API_TYPEORM_TYPE: process.env.API_TYPEORM_TYPE,
   API_TYPEORM_PORT: process.env.API_TYPEORM_PORT,
   API_TYPEORM_SYNC: process.env.API_TYPEORM_SYNC,
