@@ -22,11 +22,14 @@
     }
   },
   "projects": {
+    "api-core": {
+      "tags": ["scope:api", "type:core"]
+    },
+    "api-shared": {
+      "tags": ["scope:api", "type:shared"]
+    },
     "roma-api": {
       "tags": []
-    },
-    "shared-assets": {
-      "tags": ["scope:shared", "type:assets"]
     },
     "roma-app": {
       "tags": [],
@@ -36,17 +39,14 @@
       "tags": [],
       "implicitDependencies": ["roma-app"]
     },
-    "shared-styles": {
-      "tags": ["scope:shared", "type:styles"]
+    "shared-assets": {
+      "tags": ["scope:shared", "type:assets"]
     },
     "shared-environments": {
       "tags": ["scope:shared", "type:environments"]
     },
-    "api-core": {
-      "tags": ["scope:api", "type:core"]
-    },
-    "api-shared": {
-      "tags": ["scope:api", "type:shared"]
+    "shared-styles": {
+      "tags": ["scope:shared", "type:styles"]
     }
   }
 }
