@@ -1,0 +1,46 @@
+version: '3.8'
+
+networks:
+  corp:
+    driver: bridge
+
+services:
+  roma-api:
+    container_name: roma-server
+    build:
+      context: ./
+      cache_from:
+        - my-base-image:nx-base
+      dockerfile: ./apps/roma-api/Dockerfile
+      args:
+        NODE_ENV: 'development'
+        BUILD_FLAG: ''
+    image: roma-api:nx-dev
+    ports:
+      - 4939:4939
+    environment:
+      NODE_ENV: 'development'
+      PORT: 4939
+    networks:
+      - corp
+    restart: on-failure
+
+  roma-app:
+    container_name: roma-app
+    build:
+      context: ./
+      cache_from:
+        - nginx:1.19.2
+      dockerfile: ./apps/roma-app/Dockerfile
+      args:
+        NODE_ENV: 'development'
+        BUILD_FLAG: ''
+    image: roma-app:nx-dev
+    ports:
+      - 4900:80
+    environment:
+      NODE_ENV: 'development'
+      PORT: 4900
+    networks:
+      - corp
+    restart: on-failure
