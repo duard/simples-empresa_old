@@ -5,6 +5,56 @@
   },
   "defaultProject": "roma-api",
   "projects": {
+    "angular-core": {
+      "root": "libs/angular/core",
+      "sourceRoot": "libs/angular/core/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/angular/core/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/angular/core"
+          ],
+          "options": {
+            "jestConfig": "libs/angular/core/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "angular-shared": {
+      "root": "libs/angular/shared",
+      "sourceRoot": "libs/angular/shared/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/angular/shared/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/angular/shared"
+          ],
+          "options": {
+            "jestConfig": "libs/angular/shared/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "api-core": {
       "root": "libs/api/core",
       "sourceRoot": "libs/api/core/src",
@@ -13,12 +63,16 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/api/core/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/api/core/**/*.ts"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/api/core"],
+          "outputs": [
+            "coverage/libs/api/core"
+          ],
           "options": {
             "jestConfig": "libs/api/core/jest.config.js",
             "passWithNoTests": true
@@ -34,15 +88,46 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/api/shared/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/api/shared/**/*.ts"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/api/shared"],
+          "outputs": [
+            "coverage/libs/api/shared"
+          ],
           "options": {
             "jestConfig": "libs/api/shared/jest.config.js",
             "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "madero": {
+      "projectType": "library",
+      "root": "libs/madero",
+      "sourceRoot": "libs/madero/src",
+      "prefix": "simples-empresa",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/madero"
+          ],
+          "options": {
+            "jestConfig": "libs/madero/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/madero/src/**/*.ts",
+              "libs/madero/src/**/*.html"
+            ]
           }
         }
       }
@@ -54,12 +139,16 @@
       "targets": {
         "build": {
           "executor": "@nrwl/node:build",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/roma-api",
             "main": "apps/roma-api/src/main.ts",
             "tsConfig": "apps/roma-api/tsconfig.app.json",
-            "assets": ["apps/roma-api/src/assets"]
+            "assets": [
+              "apps/roma-api/src/assets"
+            ]
           },
           "configurations": {
             "production": {
@@ -84,12 +173,16 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/roma-api/**/*.ts"]
+            "lintFilePatterns": [
+              "apps/roma-api/**/*.ts"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/roma-api"],
+          "outputs": [
+            "coverage/apps/roma-api"
+          ],
           "options": {
             "jestConfig": "apps/roma-api/jest.config.js",
             "passWithNoTests": true
@@ -102,7 +195,10 @@
       "root": "apps/roma-app",
       "sourceRoot": "apps/roma-app/src",
       "prefix": "simples-empresa",
-      "implicitDependencies": ["shared-assets", "shared-styles"],
+      "implicitDependencies": [
+        "shared-assets",
+        "shared-styles"
+      ],
       "targets": {
         "build": {
           "executor": "@angular-devkit/build-angular:browser",
@@ -124,9 +220,19 @@
                 "output": "assets"
               }
             ],
-            "styles": ["apps/roma-app/src/styles.scss", "libs/shared/styles/src/index.scss"],
+            "styles": [
+              "apps/roma-app/src/styles.scss",
+              "libs/shared/styles/src/index.scss",
+              "libs/shared/styles/src/index.scss",
+              "libs/madero/src/lib/style.scss"
+            ],
             "stylePreprocessorOptions": {
-              "includePaths": ["libs/shared/styles/src/", "libs/shared/styles/src/lib/", "libs/shared/styles/src/lib/"]
+              "includePaths": [
+                "libs/shared/styles/src/",
+                "libs/shared/styles/src/lib/",
+                "libs/shared/styles/src/lib/",
+                "libs/madero/src/lib/style"
+              ]
             },
             "scripts": []
           },
@@ -170,7 +276,8 @@
               "browserTarget": "roma-app:build:production"
             },
             "development": {
-              "browserTarget": "roma-app:build:development"
+              "browserTarget": "roma-app:build:development",
+              "port": 5000
             }
           },
           "defaultConfiguration": "development"
@@ -184,12 +291,17 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/roma-app/src/**/*.ts", "apps/roma-app/src/**/*.html"]
+            "lintFilePatterns": [
+              "apps/roma-app/src/**/*.ts",
+              "apps/roma-app/src/**/*.html"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/roma-app"],
+          "outputs": [
+            "coverage/apps/roma-app"
+          ],
           "options": {
             "jestConfig": "apps/roma-app/jest.config.js",
             "passWithNoTests": true
@@ -218,7 +330,9 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/roma-app-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/roma-app-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
@@ -236,12 +350,16 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/shared/environments/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/shared/environments/**/*.ts"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared/environments"],
+          "outputs": [
+            "coverage/libs/shared/environments"
+          ],
           "options": {
             "jestConfig": "libs/shared/environments/jest.config.js",
             "passWithNoTests": true

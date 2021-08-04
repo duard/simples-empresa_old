@@ -22,11 +22,20 @@
     }
   },
   "projects": {
+    "angular-core": {
+      "tags": ["scope:core", "type:styles"]
+    },
+    "angular-shared": {
+      "tags": ["scope:shared", "type:styles"]
+    },
     "api-core": {
       "tags": ["scope:api", "type:core"]
     },
     "api-shared": {
       "tags": ["scope:api", "type:shared"]
+    },
+    "madero": {
+      "tags": []
     },
     "roma-api": {
       "tags": []
