@@ -1,12 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+/* eslint-disable @typescript-eslint/no-empty-function */
+/* eslint-disable @angular-eslint/no-empty-lifecycle-method */
+/* eslint-disable @angular-eslint/component-selector */
+import { Component, OnInit } from '@angular/core'
+import { FormGroup, Validators, FormBuilder } from '@angular/forms'
 
 @Component({
   selector: 'app-profile-settings',
   templateUrl: './settings.component.html',
 })
 export class ProfileSettingsComponent implements OnInit {
-  reactiveForm: FormGroup;
+  reactiveForm: FormGroup
 
   constructor(private fb: FormBuilder) {
     this.reactiveForm = this.fb.group({
@@ -20,7 +23,7 @@ export class ProfileSettingsComponent implements OnInit {
       tele: ['', [Validators.required]],
       website: ['', [Validators.required]],
       date: ['', [Validators.required]],
-    });
+    })
   }
 
   ngOnInit() {}
@@ -30,6 +33,6 @@ export class ProfileSettingsComponent implements OnInit {
       ? 'You must enter a value'
       : form.get('email')?.hasError('email')
       ? 'Not a valid email'
-      : '';
+      : ''
   }
 }

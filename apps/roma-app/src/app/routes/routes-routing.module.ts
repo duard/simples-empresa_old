@@ -34,14 +34,14 @@ const routes: Routes = [
       //   path: 'forms',
       //   loadChildren: () => import('./forms/forms.module').then((m) => m.FormsModule),
       // },
-      // {
-      //   path: 'tables',
-      //   loadChildren: () => import('./tables/tables.module').then((m) => m.TablesModule),
-      // },
-      // {
-      //   path: 'profile',
-      //   loadChildren: () => import('./profile/profile.module').then((m) => m.ProfileModule),
-      // },
+      {
+        path: 'tables',
+        loadChildren: () => import('./tables/tables.module').then((m) => m.TablesModule),
+      },
+      {
+        path: 'profile',
+        loadChildren: () => import('./profile/profile.module').then((m) => m.ProfileModule),
+      },
       // {
       //   path: 'sessions',
       //   loadChildren: () => import('./sessions/sessions.module').then((m) => m.SessionsModule),
@@ -50,10 +50,10 @@ const routes: Routes = [
       //   path: 'helpers',
       //   loadChildren: () => import('./helpers/helpers.module').then((m) => m.HelpersModule),
       // },
-      // {
-      //   path: 'permissions',
-      //   loadChildren: () => import('./permissions/permissions.module').then((m) => m.PermissionsModule),
-      // },
+      {
+        path: 'permissions',
+        loadChildren: () => import('./permissions/permissions.module').then((m) => m.PermissionsModule),
+      },
     ],
   },
   {

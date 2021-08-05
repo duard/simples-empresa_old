@@ -1,11 +1,14 @@
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+/* eslint-disable @typescript-eslint/no-empty-function */
+/* eslint-disable @angular-eslint/no-empty-lifecycle-method */
+/* eslint-disable @angular-eslint/component-selector */
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core'
 
-import { MtxDialog } from '@ng-matero/extensions/dialog';
-import { MtxGridColumn } from '@ng-matero/extensions';
+import { MtxDialog } from '@ng-matero/extensions/dialog'
+import { MtxGridColumn } from '@ng-matero/extensions'
 
-import { TablesDataService } from '../data.service';
-import { TablesKitchenSinkEditComponent } from './edit/edit.component';
-import { TranslateService } from '@ngx-translate/core';
+import { TablesDataService } from '../data.service'
+import { TablesKitchenSinkEditComponent } from './edit/edit.component'
+import { TranslateService } from '@ngx-translate/core'
 
 @Component({
   selector: 'app-table-kitchen-sink',
@@ -99,7 +102,7 @@ export class TablesKitchenSinkComponent implements OnInit {
           type: 'icon',
           icon: 'edit',
           tooltip: this.translate.stream('table_kitchen_sink.edit'),
-          click: record => this.edit(record),
+          click: (record) => this.edit(record),
         },
         {
           color: 'warn',
@@ -110,71 +113,71 @@ export class TablesKitchenSinkComponent implements OnInit {
           popTitle: this.translate.stream('table_kitchen_sink.confirm_delete'),
           popCloseText: this.translate.stream('table_kitchen_sink.close'),
           popOkText: this.translate.stream('table_kitchen_sink.ok'),
-          click: record => this.delete(record),
+          click: (record) => this.delete(record),
         },
       ],
     },
-  ];
-  list: any[] = [];
-  isLoading = true;
+  ]
+  list: any[] = []
+  isLoading = true
 
-  multiSelectable = true;
-  rowSelectable = true;
-  hideRowSelectionCheckbox = false;
-  showToolbar = true;
-  columnHideable = true;
-  columnMovable = true;
-  rowHover = false;
-  rowStriped = false;
-  showPaginator = true;
-  expandable = false;
-  columnResizable = false;
+  multiSelectable = true
+  rowSelectable = true
+  hideRowSelectionCheckbox = false
+  showToolbar = true
+  columnHideable = true
+  columnMovable = true
+  rowHover = false
+  rowStriped = false
+  showPaginator = true
+  expandable = false
+  columnResizable = false
 
   constructor(
     private translate: TranslateService,
     private dataSrv: TablesDataService,
     public dialog: MtxDialog,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
   ) {}
 
   ngOnInit() {
-    this.list = this.dataSrv.getData();
-    this.isLoading = false;
+    this.list = this.dataSrv.getData()
+    this.isLoading = false
   }
 
   edit(value: any) {
     const dialogRef = this.dialog.originalOpen(TablesKitchenSinkEditComponent, {
       width: '600px',
       data: { record: value },
-    });
+    })
 
-    dialogRef.afterClosed().subscribe(() => console.log('The dialog was closed'));
+    dialogRef.afterClosed().subscribe(() => console.log('The dialog was closed'))
   }
 
   delete(value: any) {
-    this.dialog.alert(`You have deleted ${value.position}!`);
+    this.dialog.alert(`You have deleted ${value.position}!`)
   }
 
   changeSelect(e: any) {
-    console.log(e);
+    console.log(e)
   }
 
   changeSort(e: any) {
-    console.log(e);
+    console.log(e)
   }
 
   enableRowExpandable() {
-    this.columns[0].showExpand = this.expandable;
+    this.columns[0].showExpand = this.expandable
   }
 
   updateCell() {
-    this.list = this.list.map(item => {
-      item.weight = Math.round(Math.random() * 1000) / 100;
-      return item;
-    });
+    this.list = this.list.map((item) => {
+      item.weight = Math.round(Math.random() * 1000) / 100
+      return item
+    })
   }
 
   updateList() {
-    this.list = this.list.splice(-1).concat(this.list);
+    this.list = this.list.splice(-1).concat(this.list)
   }
 }

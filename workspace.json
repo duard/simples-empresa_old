@@ -223,7 +223,6 @@
             "styles": [
               "apps/roma-app/src/styles.scss",
               "libs/shared/styles/src/index.scss",
-              "libs/shared/styles/src/index.scss",
               "libs/madero/src/lib/style.scss"
             ],
             "stylePreprocessorOptions": {
@@ -265,6 +264,20 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
+            },
+            "hmr": {
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "libs/shared/environments/src/lib/environment.ts",
+                  "with": "libs/shared/environments/src/lib/environment.hmr.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -278,6 +291,11 @@
             "development": {
               "browserTarget": "roma-app:build:development",
               "port": 5000
+            },
+            "hmr": {
+              "hmr": true,
+              "port": 5000,
+              "browserTarget": "roma-app:build:hmr"
             }
           },
           "defaultConfiguration": "development"

@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { NgxPermissionsService } from 'ngx-permissions';
+/* eslint-disable @typescript-eslint/no-empty-function */
+/* eslint-disable @angular-eslint/no-empty-lifecycle-method */
+/* eslint-disable @angular-eslint/component-selector */
+import { Component, OnInit } from '@angular/core'
+import { NgxPermissionsService } from 'ngx-permissions'
 
 @Component({
   selector: 'app-permissions-test',
@@ -7,14 +10,14 @@ import { NgxPermissionsService } from 'ngx-permissions';
   styleUrls: ['./test.component.scss'],
 })
 export class PermissionsTestComponent implements OnInit {
-  comparedPermission: string[] = ['guest'];
+  comparedPermission: string[] = ['guest']
 
   constructor(private permissionsSrv: NgxPermissionsService) {}
 
   ngOnInit() {}
 
   getPermissions() {
-    return Object.keys(this.permissionsSrv.getPermissions());
+    return Object.keys(this.permissionsSrv.getPermissions())
   }
 
   addPermission() {
@@ -22,35 +25,35 @@ export class PermissionsTestComponent implements OnInit {
     this.permissionsSrv.addPermission('admin', () => {
       // return false;
       return new Promise<boolean>((resolve, reject) => {
-        setTimeout(() => resolve(true), 2000);
-      });
-    });
+        setTimeout(() => resolve(true), 2000)
+      })
+    })
   }
 
   removePermission() {
-    this.permissionsSrv.removePermission('admin');
+    this.permissionsSrv.removePermission('admin')
   }
 
   unAuthorized() {
-    console.log('unAuthorized');
+    console.log('unAuthorized')
   }
 
   authorized() {
-    console.log('authorizes');
+    console.log('authorizes')
   }
 
   changeToAdmin() {
-    this.comparedPermission = ['admin'];
-    console.log(this.comparedPermission);
+    this.comparedPermission = ['admin']
+    console.log(this.comparedPermission)
   }
 
   changeToAnotherPermission() {
-    this.comparedPermission = ['awesome'];
-    console.log(this.comparedPermission);
+    this.comparedPermission = ['awesome']
+    console.log(this.comparedPermission)
   }
 
   changeToGuest() {
-    this.comparedPermission = ['guest'];
-    console.log(this.comparedPermission);
+    this.comparedPermission = ['guest']
+    console.log(this.comparedPermission)
   }
 }

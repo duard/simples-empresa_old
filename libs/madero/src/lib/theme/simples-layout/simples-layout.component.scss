@@ -3,10 +3,36 @@
 @use '../style/transitions';
 @use '../style/breakpoints';
 
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .matero-container-wrap,
 .matero-container {
   height: 100%;
 }
+
+// .matero-container {
+//   // flex: 1 0 auto;
+
+//   overflow-y: auto;
+//   overflow-x: hidden;
+//   height: 100%;
+
+//   position: relative;
+//   // padding: 10px;
+//   // padding-top: 10px;
+//   // padding-bottom: 0px;
+//   // background-color: gold;
+//   // margin: 25px;
+//   margin-bottom: 50px;
+//   z-index: 20;
+
+//   background-color: rgb(216, 216, 216);
+//   // margin-left: 12px;
+// }
 
 .matero-content {
   position: relative;
@@ -23,6 +49,11 @@
   &.mat-drawer-side {
     border-width: 0;
   }
+}
+
+.matero-sidenav {
+  border-right: 0px;
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.3);
 }
 
 // Layout control

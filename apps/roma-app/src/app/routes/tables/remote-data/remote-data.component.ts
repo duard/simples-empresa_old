@@ -1,8 +1,9 @@
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
-import { PageEvent } from '@angular/material/paginator';
+/* eslint-disable @angular-eslint/component-selector */
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core'
+import { PageEvent } from '@angular/material/paginator'
 
-import { MtxGridColumn } from '@ng-matero/extensions';
-import { TablesRemoteDataService } from './remote-data.service';
+import { MtxGridColumn } from '@ng-matero/extensions'
+import { TablesRemoteDataService } from './remote-data.service'
 
 @Component({
   selector: 'app-tables-remote-data',
@@ -40,10 +41,10 @@ export class TablesRemoteDataComponent implements OnInit {
     },
     { header: 'Created Date', field: 'created_at' },
     { header: 'Updated Date', field: 'updated_at' },
-  ];
-  list: any[] = [];
-  total = 0;
-  isLoading = true;
+  ]
+  list: any[] = []
+  total = 0
+  isLoading = true
 
   query = {
     q: 'user:nzbin',
@@ -51,49 +52,49 @@ export class TablesRemoteDataComponent implements OnInit {
     order: 'desc',
     page: 0,
     per_page: 10,
-  };
+  }
 
   get params() {
-    const p = Object.assign({}, this.query);
-    p.page += 1;
-    return p;
+    const p = Object.assign({}, this.query)
+    p.page += 1
+    return p
   }
 
   constructor(private remoteSrv: TablesRemoteDataService, private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
-    this.getData();
+    this.getData()
   }
 
   getData() {
-    this.isLoading = true;
+    this.isLoading = true
 
     this.remoteSrv.getData(this.params).subscribe(
-      res => {
-        this.list = res.items;
-        this.total = res.total_count;
-        this.isLoading = false;
-        this.cdr.detectChanges();
+      (res) => {
+        this.list = res.items
+        this.total = res.total_count
+        this.isLoading = false
+        this.cdr.detectChanges()
       },
       () => {
-        this.isLoading = false;
-        this.cdr.detectChanges();
+        this.isLoading = false
+        this.cdr.detectChanges()
       },
       () => {
-        this.isLoading = false;
-        this.cdr.detectChanges();
-      }
-    );
+        this.isLoading = false
+        this.cdr.detectChanges()
+      },
+    )
   }
 
   getNextPage(e: PageEvent) {
-    this.query.page = e.pageIndex;
-    this.query.per_page = e.pageSize;
-    this.getData();
+    this.query.page = e.pageIndex
+    this.query.per_page = e.pageSize
+    this.getData()
   }
 
   search() {
-    this.query.page = 0;
-    this.getData();
+    this.query.page = 0
+    this.getData()
   }
 }
