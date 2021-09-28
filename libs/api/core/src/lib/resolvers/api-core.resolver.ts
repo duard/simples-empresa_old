@@ -7,7 +7,7 @@ import { ApiCoreService } from '../services/api-core.service'
 export class ApiCoreResolver {
   constructor(private service: ApiCoreService) {}
 
-  @Query((returns) => ApiCoreStatus)
+  @Query(() => ApiCoreStatus)
   status() {
     return this.service.status()
   }

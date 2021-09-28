@@ -6,6 +6,18 @@
 npx nx run-many --target=serve --projects=roma-app,roma-api --parallel=true
 ```
 
+Try graphql on your [API](http://localhost:3000/graphql)
+
+```
+{
+  status {
+    app,
+    system
+  },
+  uptime
+}
+```
+
 This project was generated using [Nx](https://nx.dev).
 
 ## configurations
